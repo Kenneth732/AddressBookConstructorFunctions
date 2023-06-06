@@ -1,7 +1,7 @@
 # BlackCoder@CodeWise.com
 
 
-> Here's a breakdown of the code you provided:
+> Here's a breakdown of the code:
 
 ```javascript
 function Contact(firstName, lastName, phoneNumber) {
