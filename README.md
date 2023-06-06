@@ -112,4 +112,40 @@ The `Address` constructor function represents an address. It has properties like
 
 To create a contact with multiple addresses, you can create instances of the `Address` object and add them to the `addresses` array of the corresponding `Contact` object.
 
-You can continue adding more functionality to the `AddressBook` object, such as methods to add, remove, or search for contacts and addresses. The nested objects provide a flexible structure to represent the relationships between different entities in the address book application.
+> You can continue adding more functionality to the `AddressBook` object, such as methods to add, remove, or search for contacts and addresses. The nested objects provide a flexible structure to represent the relationships between different entities in the address book application.
+
+# Certainly! To add a method to the `AddressBook` prototype, you can follow these steps:
+
+1. Define the method you want to add to the `AddressBook` prototype. Let's say we want to add a method called `addContact` that takes a `Contact` object and adds it to the `contacts` array.
+
+```javascript
+AddressBook.prototype.addContact = function(contact) {
+  this.contacts.push(contact);
+};
+```
+
+2. The `AddressBook.prototype` syntax allows you to add properties and methods to the prototype object of the `AddressBook` constructor. In this case, we're adding the `addContact` method.
+
+3. Inside the method, `this` refers to the current instance of the `AddressBook` object. We can access the `contacts` array using `this.contacts` and use the `push` method to add the provided `contact` object to the array.
+
+Here's the updated code with the `addContact` method added to the `AddressBook` prototype:
+
+```javascript
+function AddressBook() {
+  this.contacts = [];
+}
+
+AddressBook.prototype.addContact = function(contact) {
+  this.contacts.push(contact);
+};
+```
+
+With this method, you can now add contacts to the address book by calling `addContact` on an instance of `AddressBook`, like this:
+
+```javascript
+const addressBook = new AddressBook();
+const contact1 = new Contact("John", "Doe", "123456789");
+addressBook.addContact(contact1);
+```
+
+The `contact1` object will be added to the `contacts` array within the `addressBook` instance.
