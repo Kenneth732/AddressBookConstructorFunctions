@@ -28,7 +28,7 @@ const janeSmith = new Contact("Jane", "Smith", "9876543210");
 
 In this example, `johnDoe` and `janeSmith` are two separate instances of the `Contact` object, each with their own set of properties.
 
-Let me know if you have any questions or if there's anything specific you'd like to implement using the `Contact` constructor function.
+
 
 # Adding a method to the Contact Prototype
 
