@@ -57,6 +57,7 @@ function listContacts(addressBookToDisplay) {
     contactsDiv.append(ul);
 }
 
+
 function handleFormSubmission(event) {
     event.preventDefault();
     const inputtedFirstName = document.querySelector("input#new-first-name").value;
@@ -64,18 +65,14 @@ function handleFormSubmission(event) {
     const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
     let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
     addressBook.addContact(newContact);
-    console.log(addressBook.contacts);
-}
-
-window.addEventListener("load", function () {
+    listContacts(addressBook);  // <--- This is the new line!
+  }
+  
+window.addEventListener("load", function (){
     document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
 });
 
 
-
-document.querySelector('form#new-contact').addEventListener('submit', (e) => {
-    e.preventDefault();
-})
 
 
 // let firstContact = new Contact("Ada", "Lovelace", "808-555-1111")
@@ -93,4 +90,6 @@ document.querySelector('form#new-contact').addEventListener('submit', (e) => {
 
 // console.log(firstContact.id); // Output: 1
 // console.log(secondContact.id); // Output: 2
+
+
 
