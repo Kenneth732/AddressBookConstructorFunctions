@@ -73,12 +73,18 @@ function AddressBook() {
     document.querySelector(".last-name").innerText = contact.lastName;
     document.querySelector(".phone-number").innerText = contact.phoneNumber;
     document.querySelector("div#contact-details").removeAttribute("class");
+    document.querySelector("button.delete").setAttribute("id", contact.id);
+    document.querySelector("div#contact-details").removeAttribute("class");
   }
 
+  function handleDelete(event){
+  event.preventDefault()
+}
   window.addEventListener("load", function (){
     document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
     // The line below this one is new!
-    document.querySelector("div#contacts").addEventListener("click", displayContactDetails);   
+    document.querySelector("div#contacts").addEventListener("click", displayContactDetails);  
+    document.querySelector("button.delete").addEventListener("click", handleDelete); 
   });
 
 
