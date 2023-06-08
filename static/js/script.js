@@ -56,18 +56,8 @@ function AddressBook() {
     });
     contactsDiv.append(ul);
   }
-  
-  function handleFormSubmission(event) {
-    event.preventDefault();
-    const inputtedFirstName = document.querySelector("input#new-first-name").value;
-    const inputtedLastName = document.querySelector("input#new-last-name").value;
-    const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
-    let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
-    addressBook.addContact(newContact);
-    listContacts(addressBook);
-  }
-  
-  function displayContactDetails(event) {
+    
+function displayContactDetails(event) {
     const contact = addressBook.findContact(event.target.id);
     document.querySelector(".first-name").innerText = contact.firstName;
     document.querySelector(".last-name").innerText = contact.lastName;
@@ -75,7 +65,7 @@ function AddressBook() {
     document.querySelector("div#contact-details").removeAttribute("class");
     document.querySelector("button.delete").setAttribute("id", contact.id);
     document.querySelector("div#contact-details").removeAttribute("class");
-  }
+}
 
   function handleDelete(event){
   event.preventDefault()
@@ -84,12 +74,25 @@ function AddressBook() {
   document.querySelector("div#contact-details").setAttribute("class", "hidden");
   listContacts(addressBook);
 }
-  window.addEventListener("load", function (){
+
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const inputtedFirstName = document.querySelector("input#new-first-name").value;
+  const inputtedLastName = document.querySelector("input#new-last-name").value;
+  const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
+  let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+  addressBook.addContact(newContact);
+  listContacts(addressBook);
+  document.querySelector("input#new-first-name").value = null;
+  document.querySelector("input#new-last-name").value = null;
+  document.querySelector("input#new-phone-number").value = null;
+}
+
+window.addEventListener("load", function (){
     document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
-    // The line below this one is new!
     document.querySelector("div#contacts").addEventListener("click", displayContactDetails);  
     document.querySelector("button.delete").addEventListener("click", handleDelete); 
-  });
+});
 
 
 
