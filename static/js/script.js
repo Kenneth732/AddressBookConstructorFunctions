@@ -67,28 +67,28 @@ function AddressBook() {
     listContacts(addressBook);
   }
   
+  function displayContactDetails(event) {
+    console.log("The id of this <li> is " + event.target.id + ".");
+  }
+
   window.addEventListener("load", function (){
     document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
+    // The line below this one is new!
+    document.querySelector("div#contacts").addEventListener("click", displayContactDetails);   
   });
 
 
 
 
-// let firstContact = new Contact("Ada", "Lovelace", "808-555-1111")
-// let secondContact = new Contact("Dean", "Doe", "909-555-1111")
-// firstContact;
-// firstContact.fullName();
-// secondContact;
-// secondContact.fullName();
-
-// let myAddressBook = new AddressBook();
-// let firstContact = new Contact("Ada", "Lovelace", "808-555-1111");
-// let secondContact = new Contact("Dean", "Doe", "909-555-1111");
-// myAddressBook.addContact(firstContact);
-// myAddressBook.addContact(secondContact);
-
-// console.log(firstContact.id); // Output: 1
-// console.log(secondContact.id); // Output: 2
 
 
 
+// document.querySelector('form#new-contact').addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   const inputtedFirstName = document.querySelector("input#new-first-name").value;
+//   const inputtedLastName = document.querySelector("input#new-last-name").value;
+//   const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
+//   let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
+//   addressBook.addContact(newContact);
+//   listContacts(addressBook);
+// })
