@@ -79,6 +79,10 @@ function AddressBook() {
 
   function handleDelete(event){
   event.preventDefault()
+  addressBook.deleteContact(event.target.id);
+  document.querySelector("button.delete").removeAttribute("id");
+  document.querySelector("div#contact-details").setAttribute("class", "hidden");
+  listContacts(addressBook);
 }
   window.addEventListener("load", function (){
     document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
