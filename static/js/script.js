@@ -68,7 +68,11 @@ function AddressBook() {
   }
   
   function displayContactDetails(event) {
-    console.log("The id of this <li> is " + event.target.id + ".");
+    const contact = addressBook.findContact(event.target.id);
+    document.querySelector(".first-name").innerText = contact.firstName;
+    document.querySelector(".last-name").innerText = contact.lastName;
+    document.querySelector(".phone-number").innerText = contact.phoneNumber;
+    document.querySelector("div#contact-details").removeAttribute("class");
   }
 
   window.addEventListener("load", function (){
