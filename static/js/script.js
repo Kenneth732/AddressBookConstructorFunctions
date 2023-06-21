@@ -97,15 +97,85 @@ window.addEventListener("load", function (){
 
 
 
+///////////////////////////////////////////
 
+// User Interface Logic ---------
+// document.addEventListener("DOMContentLoaded", function () {
+//   const addressBook = new AddressBook();
 
+//   const contactsDiv = document.querySelector("div#contacts ul");
+//   const contactDetailsDiv = document.querySelector("div#contact-details");
+//   const firstNameSpan = document.querySelector(".first-name");
+//   const lastNameSpan = document.querySelector(".last-name");
+//   const phoneNumberSpan = document.querySelector(".phone-number");
+//   const deleteButton = document.querySelector("button.delete");
 
-// document.querySelector('form#new-contact').addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const inputtedFirstName = document.querySelector("input#new-first-name").value;
-//   const inputtedLastName = document.querySelector("input#new-last-name").value;
-//   const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
-//   let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
-//   addressBook.addContact(newContact);
-//   listContacts(addressBook);
-// })
+//   document.querySelector("form#new-contact").addEventListener("submit", function (event) {
+//     event.preventDefault();
+
+//     const firstNameInput = document.querySelector("input#new-first-name");
+//     const lastNameInput = document.querySelector("input#new-last-name");
+//     const phoneNumberInput = document.querySelector("input#new-phone-number");
+
+//     const firstName = firstNameInput.value;
+//     const lastName = lastNameInput.value;
+//     const phoneNumber = phoneNumberInput.value;
+
+//     if (firstName && lastName && phoneNumber) {
+//       const newContact = new Contact(firstName, lastName, phoneNumber);
+//       addressBook.addContact(newContact);
+//       listContacts();
+//       clearFormInputs([firstNameInput, lastNameInput, phoneNumberInput]);
+//     }
+//   });
+
+//   contactsDiv.addEventListener("click", function (event) {
+//     const contactId = event.target.id;
+//     const contact = addressBook.findContact(contactId);
+
+//     if (contact) {
+//       displayContactDetails(contact);
+//     }
+//   });
+
+//   deleteButton.addEventListener("click", function (event) {
+//     const contactId = event.target.id;
+//     addressBook.deleteContact(contactId);
+//     listContacts();
+//     clearContactDetails();
+//   });
+
+//   function listContacts() {
+//     contactsDiv.innerHTML = "";
+//     Object.values(addressBook.contacts).forEach(function (contact) {
+//       const li = document.createElement("li");
+//       li.textContent = contact.fullName();
+//       li.setAttribute("id", contact.id);
+//       contactsDiv.appendChild(li);
+//     });
+//   }
+
+//   function displayContactDetails(contact) {
+//     firstNameSpan.textContent = contact.firstName;
+//     lastNameSpan.textContent = contact.lastName;
+//     phoneNumberSpan.textContent = contact.phoneNumber;
+//     contactDetailsDiv.classList.remove("hidden");
+//     deleteButton.setAttribute("id", contact.id);
+//   }
+
+//   function clearFormInputs(inputs) {
+//     inputs.forEach(function (input) {
+//       input.value = "";
+//     });
+//   }
+
+//   function clearContactDetails() {
+//     firstNameSpan.textContent = "";
+//     lastNameSpan.textContent = "";
+//     phoneNumberSpan.textContent = "";
+//     contactDetailsDiv.classList.add("hidden");
+//     deleteButton.removeAttribute("id");
+//   }
+
+//   listContacts();
+// });
